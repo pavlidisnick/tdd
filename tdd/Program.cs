@@ -23,11 +23,10 @@
 
             for (int i = 0; i < throws.Count; i++)
             {
-
                 firstRound = !firstRound;
 
                 //strike check
-                if (firstRound && (throws[i] % 10 == 0) && throws[i] != 0)
+                if (firstRound && (throws[i] % 10 == 0) && throws[i] != 0 && i < 10)
                 {
                     sum += throws[i];
                     frame++;
@@ -37,7 +36,7 @@
                     {
                         throws[i + 1] = throws[i + 1] * 2;
                     }
-                    if (i + 2 < throws.Count)
+                    if (i + 2 < throws.Count && i < 10)
                     {
                         throws[i + 2] = throws[i + 2] * 2;
                     }
@@ -46,7 +45,7 @@
                 }
 
                 //spare check
-                if (i != 0 && !firstRound && ((throws[i] + throws[i - 1]) % 10 == 0) && ((throws[i] != 0)))
+                if (i < 10 && i != 0 && !firstRound && ((throws[i] + throws[i - 1]) % 10 == 0) && (throws[i] != 0))
                 {
                     sum += throws[i];
                     //boundary check

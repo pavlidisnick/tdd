@@ -94,5 +94,14 @@ namespace TestProject2
 
             Assert.AreEqual(expected, actuall);
         }
+
+        [TestMethod]
+        public void Return_SpecialCase3()
+        {
+            var expected = 300;
+            var actuall = Bowling.Throw(new List<int> { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 });
+
+            Assert.AreEqual(expected, actuall);
+        }
     }
 }
