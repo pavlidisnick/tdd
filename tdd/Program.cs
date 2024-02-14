@@ -12,8 +12,9 @@
     {
         public static int Throw(List<int> throws)
         {
+            var firstRound = false;
+            var frame = 0;
             var sum = 0;
-            var lastRoundStrike = false;
 
             if (throws.Count == 0)
             {
@@ -22,25 +23,37 @@
 
             for (int i = 0; i < throws.Count; i++)
             {
+
+                firstRound = !firstRound;
+
                 //strike check
-                if (throws[i] == 10 && (i % 2 == 0))
+                if (firstRound && (throws[i] % 10 == 0) && throws[i] != 0)
                 {
                     sum += throws[i];
-                    lastRoundStrike = true;
-                    throws[i + 1] = throws[i + 1] * 2;
-                    throws[i + 2] = throws[i + 2] * 2;
+                    frame++;
+
+                    //boundary check
+                    if (i + 1 < throws.Count)
+                    {
+                        throws[i + 1] = throws[i + 1] * 2;
+                    }
+                    if (i + 2 < throws.Count)
+                    {
+                        throws[i + 2] = throws[i + 2] * 2;
+                    }
+                    firstRound = false;
                     continue;
-                }
-                else
-                {
-                    lastRoundStrike = false;
                 }
 
                 //spare check
-                if (i != 0 && (throws[i - 1] != 10) && ((throws[i] + throws[i - 1]) % 10) == 0 && !lastRoundStrike)
+                if (i != 0 && !firstRound && ((throws[i] + throws[i - 1]) % 10 == 0) && ((throws[i] != 0)))
                 {
                     sum += throws[i];
-                    throws[i + 1] = throws[i + 1] * 2;
+                    //boundary check
+                    if (i + 1 < throws.Count)
+                    {
+                        throws[i + 1] = throws[i + 1] * 2;
+                    }
                     continue;
                 }
 

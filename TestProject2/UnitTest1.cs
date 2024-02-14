@@ -53,7 +53,7 @@ namespace TestProject2
         [TestMethod]
         public void Return_StrikeThrow()
         {
-            var expected = 18;
+            var expected = 18; 
             var actuall = Bowling.Throw(new List<int> { 10, 2, 2 });
 
             Assert.AreEqual(expected, actuall);
@@ -82,6 +82,15 @@ namespace TestProject2
         {
             var expected = 36;
             var actuall = Bowling.Throw(new List<int> { 10, 0, 10, 3 });
+
+            Assert.AreEqual(expected, actuall);
+        }
+
+        [TestMethod]
+        public void Return_SpecialStrikeThrow4()
+        {
+            var expected = 38;
+            var actuall = Bowling.Throw(new List<int> { 10, 0, 10, 3, 2 });
 
             Assert.AreEqual(expected, actuall);
         }
