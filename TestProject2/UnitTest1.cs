@@ -33,7 +33,7 @@ namespace TestProject2
         }
 
         [TestMethod]
-        public void Return_SpareThrow()
+        public void Return_Spare()
         {
             var expected = 14;
             var actuall = Bowling.Throw(new List<int> { 6, 4, 2 });
@@ -42,7 +42,7 @@ namespace TestProject2
         }
 
         [TestMethod]
-        public void Return_SpecialSpareCase()
+        public void Return_SpecialSpare1()
         {
             var expected = 13;
             var actuall = Bowling.Throw(new List<int> { 0, 5, 5, 3 });
@@ -51,25 +51,7 @@ namespace TestProject2
         }
 
         [TestMethod]
-        public void Return_StrikeThrow()
-        {
-            var expected = 18; 
-            var actuall = Bowling.Throw(new List<int> { 10, 2, 2 });
-
-            Assert.AreEqual(expected, actuall);
-        }
-
-        [TestMethod]
-        public void Return_SpecialStrikeThrow1()
-        {
-            var expected = 14;
-            var actuall = Bowling.Throw(new List<int> { 0, 10, 1, 2 });
-
-            Assert.AreEqual(expected, actuall);
-        }
-
-        [TestMethod]
-        public void Return_SpecialStrikeThrow2()
+        public void Return_SpecialSpare2()
         {
             var expected = 26;
             var actuall = Bowling.Throw(new List<int> { 0, 10, 0, 10, 2, 2 });
@@ -78,7 +60,25 @@ namespace TestProject2
         }
 
         [TestMethod]
-        public void Return_SpecialStrikeThrow3()
+        public void Return_SpecialSpare3()
+        {
+            var expected = 14;
+            var actuall = Bowling.Throw(new List<int> { 0, 10, 1, 2 });
+
+            Assert.AreEqual(expected, actuall);
+        }
+
+        [TestMethod]
+        public void Return_Strike()
+        {
+            var expected = 18;
+            var actuall = Bowling.Throw(new List<int> { 10, 2, 2 });
+
+            Assert.AreEqual(expected, actuall);
+        }
+
+        [TestMethod]
+        public void Return_SpecialCase1()
         {
             var expected = 36;
             var actuall = Bowling.Throw(new List<int> { 10, 0, 10, 3 });
@@ -87,7 +87,7 @@ namespace TestProject2
         }
 
         [TestMethod]
-        public void Return_SpecialStrikeThrow4()
+        public void Return_SpecialCase2()
         {
             var expected = 38;
             var actuall = Bowling.Throw(new List<int> { 10, 0, 10, 3, 2 });
