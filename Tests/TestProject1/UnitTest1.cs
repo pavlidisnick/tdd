@@ -1,6 +1,6 @@
 using tdd;
 
-namespace TestProject2
+namespace TestProject1
 {
     [TestClass]
     public class UnitTest1
